@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using intro_JWT_Token.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace intro_JWT_Token.Controllers
 {
@@ -12,10 +13,12 @@ namespace intro_JWT_Token.Controllers
 		{
 			_configuration = configuration;
 		}
+
+		[HttpGet]
 		public IActionResult GetJwtToken()
 		{
 			TokenModel jwtTokenModel = JwtTokenHandler.TokenOlustur(_configuration);
-			return Ok();
+			return Ok(jwtTokenModel);
 		}
 	}
 }
